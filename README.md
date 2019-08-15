@@ -9,6 +9,12 @@ Specifically, it aims to abstract and simplify:
 
 ## Usage
 
+Install with:
+
+```
+$ meteor add alawi:ssr-helpe
+```
+
 **Server:**
 
 
