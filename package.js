@@ -11,7 +11,7 @@ Package.onUse(function(api) {
 
   api.use('ecmascript');
   api.use('server-render');
-  api.use('chuangbo:cookie');
+  api.use('chuangbo:cookie@1.1.0');
   api.use('accounts-base');
   api.use('check');
 
