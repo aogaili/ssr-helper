@@ -1,6 +1,6 @@
 Package.describe({
-  name: 'ssr-helper',
-  version: '0.0.1',
+  name: 'alawi:ssr-helper',
+  version: '0.0.2',
   summary: 'Meteor Server Render Helper Functions',
   git: 'https://github.com/aliogaili/ssr-helper',
   documentation: 'README.md'

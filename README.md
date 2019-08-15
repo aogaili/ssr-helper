@@ -13,7 +13,7 @@ Specifically, it aims to abstract and simplify:
 
 
 ```
-import {SSRServerHelper} from 'meteor/ssr-helper';
+import {SSRServerHelper} from 'meteor/alawi:ssr-helper';
 
 .....
 
@@ -38,7 +38,7 @@ onPageLoad(async sink => {
 Somewhere in the client initialize code:
 
 ```
-import {SSRClientHelper} from 'meteor/ssr-helper';
+import {SSRClientHelper} from 'meteor/alawi:ssr-helper';
 
 // Process the injected SSR data
 SSRClientHelper.processData();
