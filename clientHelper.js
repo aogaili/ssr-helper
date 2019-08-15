@@ -1,6 +1,8 @@
-import {Meteor} from "meteor/meteor";
-
 export class SSRClientHelper{
+    /**
+     * Process the data injected by the SSRServerHelper
+     * @returns {any}
+     */
     static processData = () => {
         const injectedData = document.getElementById('injected-data');
         if (injectedData) {
@@ -16,6 +18,10 @@ export class SSRClientHelper{
             }
         }
     }
+    /**
+     *  Get an object of all the SSRed data
+     * @returns {*}
+     */
     static getMap = ()=> {
         const SSRObj = window.sessionStorage.getItem('SSRData');
         if (!SSRObj) {
@@ -23,6 +29,12 @@ export class SSRClientHelper{
         }
         return JSON.parse(SSRObj);
     }
+
+    /**
+     * Get an SSRed data item with a given key
+     * @param key
+     * @returns {object}
+     */
     static getItem = key => {
         const SSRObj = window.sessionStorage.getItem('SSRData');
         if (!SSRObj) {
@@ -31,6 +43,10 @@ export class SSRClientHelper{
         const dataObj =  JSON.parse(SSRObj);
         return dataObj[key]
     };
+    /**
+     *  Get the user passed by the server during SSR
+      * @returns {Object}
+     */
     static getUser = () => {
         return SSRClientHelper.getItem('user')
     }

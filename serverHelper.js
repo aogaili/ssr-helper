@@ -7,9 +7,20 @@ export class SSRServerHelper{
         this.dataMap = new Map();
         this.sink = sink;
     }
+
+    /**
+     * Set a {key,value} pair to be fetched by the client
+     * @param key
+     * @param value
+     */
     setItem = (key, value) => {
         this.dataMap.set(key, value)
     }
+    /**
+     *
+     * @param injectUser - setItem('user', userDoc) to be fetched by client
+     * @returns {Promise<null>}
+     */
     getUser = async (injectUser = true) => {
         if(!this.sink) {
             console.error("sink object is null");
@@ -43,6 +54,9 @@ export class SSRServerHelper{
             return null;
         }
     }
+    /**
+     * Inject the data in the body of the server rendered page
+     */
     injectData = () => {
         const dataMap = this.dataMap;
         if (this.dataMap.size > 0) {
