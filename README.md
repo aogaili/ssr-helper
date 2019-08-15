@@ -12,7 +12,7 @@ Specifically, it aims to abstract and simplify:
 Install with:
 
 ```
-$ meteor add alawi:ssr-helpe
+$ meteor add alawi:ssr-helper
 ```
 
 **Server:**
