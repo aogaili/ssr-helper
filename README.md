@@ -41,7 +41,7 @@ onPageLoad(async sink => {
 
 **Client:**
 
-Somewhere in the client initialize code:
+Somewhere in the client initialization code:
 
 ```
 import {SSRClientHelper} from 'meteor/alawi:ssr-helper';
