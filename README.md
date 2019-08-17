@@ -1,10 +1,14 @@
 ## About
 
-This is a class of simple helper functions for simplifying Meteor's server rendering process. 
+This pacakge aims to simplify Meteor's servering rendering process. Specifically:
 
-Specifically, it aims to abstract and simplify:
-1. The Retrieval of the the user document for a logged user (if available)
-2. The injection of data to be using in the client hydration 
+1. Make Meteor.User() works during server rendering.
+
+Accessing ```Meteor.user()``` during Meteor server rendering process will result in
+```Meteor.userId can only be invoked in method calls or publications```
+this is because the Meteor DDP session has not been instaniated yet. However, it is a common to require the user object in order to personalize the server render page thus the package will patch ```Meteor.user()``` to make it work during SSR.
+
+2. The package also aims to simplify the marshaling of data from server to client during SSR.
 
 
 ## Usage
@@ -72,6 +76,9 @@ data and store in the session storage.
 
 Using the user token to fetch the user data when doing SSR has some security concerns that were discussed [here](https://github.com/kadirahq/fast-render/issues/145), and [here](https://blog.meteor.com/why-meteor-doesnt-use-session-cookies-e988544f52c9).
 
+## Next Steps
+- Patch ```Meteor.userId``` on the server during SSR
+- Patch ```Meteor.user()``` at the client during SSR
 
 ## Credits
 The code is based on the snippets from [kadira's fast render package](https://github.com/kadirahq/fast-render). 
