@@ -22,8 +22,6 @@ $ meteor add alawi:ssr-helper
 ```js
 import { SSRServerHelper } from 'meteor/alawi:ssr-helper';
 
-.....
-
 onPageLoad(async sink => {
     
     // Meteor.user() will work as expected, instead of throwing out of context error.
@@ -46,7 +44,7 @@ onPageLoad(async sink => {
 Somewhere in the client initialization code:
 
 ```js
-import {SSRClientHelper} from 'meteor/alawi:ssr-helper';
+import { SSRClientHelper } from 'meteor/alawi:ssr-helper';
 
 // Process the injected SSR data.
 SSRClientHelper.processData();
