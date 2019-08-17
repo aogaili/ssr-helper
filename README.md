@@ -19,11 +19,14 @@ $ meteor add alawi:ssr-helper
 
 
 ```
-import {SSRServerHelper} from 'meteor/alawi:ssr-helper';
+import { SSRServerHelper } from 'meteor/alawi:ssr-helper';
 
 .....
 
 onPageLoad(async sink => {
+    // Meteor.user() will work as expected, instead of throwing out of context 
+    // error
+    console.log(Meteor.user())
     // Instantiate the server helper.
     const ssrHelper = new SSRServerHelper(sink);
     // Get the user doc (if logged in) using a cookie.
@@ -31,6 +34,7 @@ onPageLoad(async sink => {
     // Set items to be passed to the client.
     ssrHelper.setItem('count', {name: '1'});
     // Inject the data in the page body.
+    // This will also inject user doc by default.
     ssrHelper.injectData();
     
     sink.renderIntoElementById("app", renderToString(
@@ -64,6 +68,10 @@ from the users collection.
 The data is then injected in the body of the server rendered page. The client parses the injected
 data and store in the session storage. 
 
-## Credits
+## Security
 
+Using the user token to fetch the user data when doing SSR has some security concerns that were discussed [here](https://github.com/kadirahq/fast-render/issues/145), and [here](https://blog.meteor.com/why-meteor-doesnt-use-session-cookies-e988544f52c9).
+
+
+## Credits
 The code is based on the snippets from [kadira's fast render package](https://github.com/kadirahq/fast-render). 
