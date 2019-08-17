@@ -1,6 +1,6 @@
 ## SSR Helper
 
-This pacakge aims to simplify Meteor's servering rendering process. Specifically:
+This pacakge aims to simplify Meteor's server rendering process. Specifically:
 
 1. **Make Meteor.User() works during server rendering**, accessing ```Meteor.user()``` during Meteor server rendering process will result in
 ```Meteor.userId can only be invoked in method calls or publications```
