@@ -93,7 +93,9 @@ export class SSRServerHelper {
     if (injectUser && !dataMap["user"]) {
       const user = Meteor.user();
       // Remove user services for security and performance
-      delete user.services;
+      if (user) {
+        delete user.services;
+      }
       dataMap.set("user", user);
     }
     const SSRObj = {};
